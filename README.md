@@ -35,7 +35,7 @@ Note that the values in the above should be floats given how the inner vector is
 
 ### Modulo (%) in C++ and Negative Numbers
 
-If you type `-1 % 5` into either Python script or Google, you should get `4` as the answer. However, if you do the same in C++, you'll get `1`.
+If you type `-1 % 5` into either Python script or Google, you should get `4` as the answer. However, if you do the same in C++, you'll get `-1`.
 
 Why? Well, it isn't actually modulo in C++, but the remainder! Check out [this Stack Overflow post](https://stackoverflow.com/questions/11630321/why-does-c-output-negative-numbers-when-using-modulo) if you want to read about why this is.
 

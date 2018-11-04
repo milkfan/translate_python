@@ -103,6 +103,16 @@ vector< vector <float> > move(int dy, int dx,
   vector < vector <float> > newGrid;
 
   // your code here
+  int rows = beliefs.size();
+  int cols = beliefs[0].size();
+  newGrid = zeros(rows, cols);
+  for (int i = 0; i < rows; i++) {
+	  for (int j = 0; j < cols; j++) {
+		  int next_i = ((i + dy) % rows + rows) % rows;
+		  int next_j = ((j + dx) % cols + cols) % cols;
+		  newGrid[next_i][next_j] = beliefs[i][j];
+	  }
+  }
 
   return blur(newGrid, blurring);
 }
@@ -154,6 +164,20 @@ vector< vector <float> > sense(char color,
 	vector< vector <float> > newGrid;
 
 	// your code here
+	int rows = beliefs.size();
+	int cols = beliefs[0].size();
+	newGrid = zeros(rows, cols);
+
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (grid[i][j] == color) {
+				beliefs[i][j] *= p_hit;
+			}
+			else {
+				beliefs[i][j] *= p_miss;
+			}
+		}
+	}
 
 	return normalize(newGrid);
 }
